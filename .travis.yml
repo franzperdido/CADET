@@ -15,9 +15,9 @@ dist: trusty
 git:
   depth: 2
 
-cache:
-  directories:
-    - ${TRAVIS_BUILD_DIR}/deps
+#cache:
+#  directories:
+#    - ${TRAVIS_BUILD_DIR}/deps
 
 matrix:
   include:
