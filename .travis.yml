@@ -24,54 +24,12 @@ matrix:
 
     # Clang on OSX
 
-    # XCode 9.1 on OS X 10.12
-    - env: COMPILERCPP=clang++ COMPILERC=clang NTHREADS=0 BUILD_TYPE=Release
-      os: osx
-      osx_image: xcode9.1
-      compiler: clang
-
     # XCode 9.3 on OS X 10.13
-    - env: COMPILERCPP=clang++ COMPILERC=clang NTHREADS=0 BUILD_TYPE=Release
+    - env: COMPILERCPP=clang++ COMPILERC=clang NTHREADS=0 BUILD_TYPE=Debug
       os: osx
       osx_image: xcode9.3beta
       compiler: clang
 
-    # Clang on Linux
-
-    # Clang 5.0
-    - env: COMPILERCPP=clang++-5.0 COMPILERC=clang-5.0 NTHREADS=0 BUILD_TYPE=Release
-      addons:
-        apt:
-          packages:
-            - clang-5.0
-            - llvm-5.0-dev 
-            - g++-5
-            - gcc-5
-            - cmake
-            - libblas-dev
-            - liblapack-dev
-            - libhdf5-dev
-          sources:
-            - ubuntu-toolchain-r-test
-            - llvm-toolchain-trusty-5.0
-            - sourceline: 'deb http://apt.llvm.org/trusty/ llvm-toolchain-trusty-4.0 main'
-              key_url: 'https://apt.llvm.org/llvm-snapshot.gpg.key'
-
-    # GCC on Linux
-
-    # GCC 6
-    - env: COMPILERCPP=g++-6 COMPILERC=gcc-6 NTHREADS=1 BUILD_TYPE=Release
-      addons:
-        apt:
-          packages: 
-            - g++-6
-            - gcc-6
-            - cmake
-            - libblas-dev
-            - liblapack-dev
-            - libhdf5-dev
-          sources:
-            - ubuntu-toolchain-r-test
 
 before_install:
   # Dependencies required by the CI are installed in ${TRAVIS_BUILD_DIR}/deps/
